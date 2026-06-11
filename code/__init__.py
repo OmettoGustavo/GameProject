@@ -1,2 +1,4 @@
 class EntityFactory:
-    pass
+    @classmethod
+    def get_entity(cls, param):
+        pass
