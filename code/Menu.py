@@ -11,7 +11,7 @@ class Menu:
         self.window = window
         self.surf = pygame.image.load('./asset/MenuBg.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
-        self.menu_option_index = 0  # Índice para controlar a seleção
+        self.menu_option_index = 0  # Index to control the selection
 
     def run(self):
         pygame.mixer_music.load('./asset/Menu.mp3')
@@ -21,7 +21,7 @@ class Menu:
             self.menu_text(80, "Bee's", COLOR_YELLOW, ((WIN_WIDTH / 2), 70))
             self.menu_text(80, "Bounty", COLOR_YELLOW, ((WIN_WIDTH / 2), 120))
 
-            # Desenha as opções com destaque para a selecionada
+            # Draw the options, highlighting the selected one.
             for i in range(len(MENU_OPTION)):
                 color = COLOR_YELLOW if i == self.menu_option_index else COLOR_WHITE
                 self.menu_text(20, MENU_OPTION[i], color, ((WIN_WIDTH / 2), 200 + 25 * i))
@@ -40,7 +40,7 @@ class Menu:
                         elif event.key == pygame.K_UP:
                             self.menu_option_index = (self.menu_option_index - 1) % len(MENU_OPTION)
                         elif event.key == pygame.K_RETURN:
-                            return MENU_OPTION[self.menu_option_index] # Retorna a string selecionada
+                            return MENU_OPTION[self.menu_option_index] # Returns the selected string
 
     def menu_text(self, text_size, text, text_color, text_center_pos):
         text_font = pygame.font.SysFont("Lucida Sans Typewriter", text_size)

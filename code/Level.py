@@ -7,9 +7,11 @@ from pygame import Surface, Rect
 from pygame.font import Font
 
 from code.EntityFactory import EntityFactory
-from code.Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_POINT, SPAWN_TIME, ENTITY_SPEED
+from code.Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_POINT, SPAWN_TIME, ENTITY_SPEED, COLOR_GREEN, \
+    COLOR_BLUE
 from code.Entity import Entity
 from code.EntityMediator import EntityMediator
+from code.Player import Player
 
 
 class Level:
@@ -39,12 +41,26 @@ class Level:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move(ENTITY_SPEED)
 
+                if ent.name == 'Player1':
+                    self.level_text(14, f'Player1 - Health: {ent.health}', COLOR_GREEN, (10, 25))
+                if ent.name == 'Player2':
+                    self.level_text(14, f'Player2 - Health: {ent.health}', COLOR_BLUE, (10, 45))
+
+                if isinstance(ent, Player):
+                    if ent.name == 'Player1':
+                        # Player 1's score is in green at the top left.
+                        self.level_text(14, f'Player1 Score: {ent.score}', COLOR_GREEN, (250, 5))
+                    if ent.name == 'Player2':
+                        # Player 2's score is shown in blue below Player 1's score.
+                        self.level_text(14, f'Player2 Score: {ent.score}', COLOR_BLUE, (400, 5))
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
                 if event.type == EVENT_POINT:
                     self.entity_list.append(EntityFactory.get_entity('Point'))
+
 
             # printed text
             self.level_text( 14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s' , COLOR_WHITE, (10, 5))

@@ -24,4 +24,4 @@ class EntityFactory:
             case 'Point':
                 return Point('Point', (WIN_WIDTH +10, random.randint(40, WIN_HEIGHT - 40)))
             case _:
-                return [] # Retorno padrão (lista vazia)
+                return [] # Default return (empty list)
