@@ -31,7 +31,7 @@ ENTITY_HEALTH = {
 # M
 MENU_OPTION = ('NEW GAME 1P',
                'NEW GAME 2P - Cooperative',
-               'NEW GAME 2P - Cooperative',
+               'NEW GAME 2P - Competitive',
                'SCORE',
                'EXIT')
 
@@ -57,7 +57,7 @@ PLAYER_KEY_RIGHT = {
 }
 
 #S
-SPAWN_TIME = 2000
+SPAWN_TIME = 500
 
 # W
 WIN_WIDTH = 576

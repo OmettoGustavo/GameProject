@@ -2,7 +2,7 @@ from abc import abstractmethod, ABC
 
 import pygame
 
-from code.Const import ENTITY_HEALTH
+from code.Const import ENTITY_HEALTH, WIN_WIDTH, WIN_HEIGHT
 
 
 class Entity(ABC):
@@ -10,7 +10,8 @@ class Entity(ABC):
     def __init__(self, name: str, position: tuple):
         self.name = name
         self.surf = pygame.image.load(f'./asset/{name}.png').convert_alpha()
-        self.surf = pygame.transform.scale(self.surf, (50, 50))
+        if 'Bg' not in name:
+            self.surf = pygame.transform.scale(self.surf, (50, 50))
         self.rect = self.surf.get_rect(left=position[0], top=position[1])
         self.speed = 0
         self.health = ENTITY_HEALTH[self.name]
