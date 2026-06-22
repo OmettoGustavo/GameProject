@@ -1,55 +1,59 @@
-# Bee's Bounty
+Bee's Bounty
 
-Um jogo em 2D desenvolvido com Python e Pygame, utilizando padrões de projeto para uma arquitetura limpa e modular.
+A 2D game developed with Python and Pygame, utilizing design patterns for a clean and modular architecture.
+🚀 About the Project
 
-## 🚀 Sobre o Projeto
+Bee's Bounty is an academic/personal project focused on the practical application of Design Patterns, such as Factory and Mediator, to manage game entities and their interactions.
+🛠️ Technologies Used
 
-O **Bee's Bounty** é um projeto acadêmico/pessoal focado na aplicação prática de padrões de projeto (Design Patterns) como **Factory** e **Mediator** para gerenciar entidades do jogo e suas interações.
+    Python: Main programming language.
 
-## 🛠️ Tecnologias Utilizadas
+    Pygame: Library for 2D game development.
 
-* **Python**: Linguagem principal.
-* **Pygame**: Biblioteca para desenvolvimento de jogos 2D.
-* **SQLite**: Banco de dados para persistência de pontuações (Top 10).
+    SQLite: Database for persistent score tracking (Top 10).
 
-## 🏗️ Arquitetura e Design Patterns
+🏗️ Architecture and Design Patterns
 
-O projeto foi estruturado para ser altamente extensível:
-* **Factory Pattern (`EntityFactory`)**: Centraliza a criação de entidades (jogadores, cenários, pontos), facilitando a adição de novos tipos de objetos.
-* **Mediator Pattern (`EntityMediator`)**: Gerencia a lógica de colisões e interação entre entidades, garantindo que os objetos sejam desacoplados.
-* **Clean Architecture**: Divisão clara entre constantes (`Const.py`), lógica de jogo (`Level.py`), entidades (`Entity.py`) e persistência (`DBProxy.py`).
+The project is structured to be highly extensible:
 
-## 🎮 Como Jogar
+    Factory Pattern (EntityFactory): Centralizes the creation of entities (players, backgrounds, points), making it easy to add new object types.
 
-1.  **Pré-requisitos**: Certifique-se de ter o Python e o Pygame instalados.
-    ```bash
-    pip install pygame
-    ```
-2.  **Execução**: Execute o arquivo principal `main.py` (ou o ponto de entrada do seu sistema).
-3.  **Controles**:
-    * **Jogador 1**: Setas (Cima, Baixo, Esquerda, Direita).
-    * **Jogador 2**: Teclas WASD.
-    * **Navegação no Menu**: Setas e Enter.
+    Mediator Pattern (EntityMediator): Manages collision logic and interactions between entities, ensuring that objects remain decoupled.
 
-## 📋 Funcionalidades
-* Modo 1 Jogador e 2 Jogadores (Cooperativo/Competitivo).
-* Sistema de níveis progressivos.
-* Sistema de pontuação com persistência em banco de dados.
-* Detecção de colisão dinâmica e gerenciamento de saúde das entidades.
+    Clean Architecture: Clear separation between constants (Const.py), game logic (Level.py), entities (Entity.py), and persistence (DBProxy.py).
 
-## 📂 Estrutura de Pastas
+🎮 How to Play
+
+    Prerequisites: Ensure you have Python and Pygame installed.
+
+pip install pygame
+
+2.  **Execution**: Run the `main.py` file (or your system's entry point).
+3.  **Controls**:
+    * **Player 1**: Arrow keys (Up, Down, Left, Right).
+    * **Player 2**: WASD keys.
+    * **Menu Navigation**: Arrow keys and Enter.
+
+## 📋 Features
+* 1-Player and 2-Player modes (Co-op/Competitive).
+* Progressive level system.
+* Score system with database persistence.
+* Dynamic collision detection and entity health management.
+
+## 📂 Folder Structure
+
 ```text
 /code
-  ├── Background.py    # Gerenciamento dos cenários
-  ├── Const.py         # Configurações globais e constantes
-  ├── DBProxy.py       # Acesso ao SQLite
-  ├── Entity.py        # Classe base (Abstrata)
-  ├── EntityFactory.py # Fábrica de entidades
-  ├── EntityMediator.py# Lógica de colisões
-  ├── Game.py          # Gerenciamento do ciclo de jogo
-  ├── Level.py         # Loop de nível
-  ├── Menu.py          # Interface do menu
-  ├── Player.py        # Lógica do jogador
-  ├── Point.py         # Lógica dos pontos
-  └── Score.py         # Interface de pontuação
-/asset                 # Imagens e áudios
+  ├── Background.py    # Background management
+  ├── Const.py         # Global configurations and constants
+  ├── DBProxy.py       # SQLite database access
+  ├── Entity.py        # Base class (Abstract)
+  ├── EntityFactory.py # Entity factory
+  ├── EntityMediator.py# Collision logic
+  ├── Game.py          # Game loop management
+  ├── Level.py         # Level loop
+  ├── Menu.py          # Menu interface
+  ├── Player.py        # Player logic
+  ├── Point.py         # Point/Collectable logic
+  └── Score.py         # Scoreboard interface
+/asset                 # Images and audio files
